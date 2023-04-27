@@ -40,6 +40,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ],
               ),
+              gaph20,
               Column(
                 children: [
                   TextFormField(

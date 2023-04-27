@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/pages/auth/signup.dart';
+import 'package:tmb_fyp/pages/guest/guest_navbar.dart';
 
 import '../../constants.dart';
 
@@ -41,6 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
+              gaph20,
               Column(
                 children: [
                   TextFormField(
@@ -80,7 +82,12 @@ class _LoginPageState extends State<LoginPage> {
               gaph20,
               gaph20,
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const GuestNavBar()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical:  10,horizontal: 100),
                 ),
