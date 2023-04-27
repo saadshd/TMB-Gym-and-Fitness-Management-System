@@ -33,8 +33,6 @@ class _GuestNavBarState extends State<GuestNavBar> {
         ),
         child: NavigationBar(
           // backgroundColor: Colors.grey.shade200,
-          // labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          // animationDuration: Duration(seconds: 2),
           selectedIndex: index,
           onDestinationSelected: (index) => setState(() => this.index = index),
           destinations: const [
@@ -44,12 +42,6 @@ class _GuestNavBarState extends State<GuestNavBar> {
               label: 'Dashboard',
               selectedIcon: Icon(Icons.dashboard, color: Colors.black),
             ),
-            // NavigationDestination(
-            //   tooltip: "",
-            //   icon: Icon(Icons.flag_outlined),
-            //   label: 'Activity',
-            //   selectedIcon: Icon(Icons.flag, color: Colors.black),
-            // ),
             NavigationDestination(
               tooltip: "",
               icon: Icon(Icons.message_outlined),

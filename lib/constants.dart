@@ -24,6 +24,11 @@ const kmd = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kmd1 = TextStyle(
+  fontSize: 16.0,
+  fontWeight: FontWeight.bold,
+);
+
 const ksm = TextStyle(
   fontSize: 14.0,
   color: Colors.black54,
