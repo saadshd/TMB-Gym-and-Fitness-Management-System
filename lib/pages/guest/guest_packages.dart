@@ -24,20 +24,30 @@ class _GuestPackagesState extends State<GuestPackages> {
                   child: Text('Packages',
                   style: kmd.copyWith(color: kprimary),),
                 ),
-                MyPackageContainer(
-                    package: 'Monthly Package',
+                const MyPackageContainer(
+                    package: 'Monthly Plan',
                     price: 'Rs. 8000',
-                    detail: 'detail'
+                    detail: 'Standard Budget Plan'
                 ),
-                MyPackageContainer(
-                    package: 'Monthly Package',
+                const MyPackageContainer(
+                    package: '1 Month Medical Condition Plan',
+                    price: 'Rs. 10000',
+                    detail: 'Caters to your medical condition'
+                ),
+                const MyPackageContainer(
+                    package: 'Postmartum Plan',
                     price: 'Rs. 15000',
-                    detail: 'detail'
+                    detail: 'For the new members'
                 ),
-                MyPackageContainer(
-                    package: '12 Monthly Package',
-                    price: 'Rs. 18000',
-                    detail: 'detail'
+                const MyPackageContainer(
+                    package: 'Transformation Plan',
+                    price: 'Rs. 20000',
+                    detail: '12 week transformation plan'
+                ),
+                const MyPackageContainer(
+                    package: 'Transformation Plan',
+                    price: 'Rs. 20000',
+                    detail: '12 week transformation plan'
                 ),
               ],
             )
@@ -65,7 +75,7 @@ class MyPackageContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
-        height: 120,
+        height: 170,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -88,22 +98,23 @@ class MyPackageContainer extends StatelessWidget {
         ),
         child: Padding(
           padding: kpda20,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(package, style: kmd1,),
                   Text(price, style: kmd.copyWith(color: Colors.indigo),),
                   Text(detail, style: ksm),
                 ],
               ),
+              gaph20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){}, child: Text('Request this Package')),
+                  ElevatedButton(onPressed: (){}, child: const Text('Request this Package')),
                 ],
               )
             ],

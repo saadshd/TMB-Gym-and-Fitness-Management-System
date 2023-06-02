@@ -16,7 +16,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: kpda20,
+            padding: kpdh20,
             child: Column(
               children: [
                 Container(
@@ -45,17 +45,19 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              children: const [
-                                Icon(Icons.fitness_center),
+                              children:  [
+                                const Icon(Icons.fitness_center,
+                                  color: Colors.white,),
                                 gapw10,
                                 Text('The Muscle Bar',
-                                  style: kmd,
+                                  style: kmd.copyWith(color: Colors.white),
                                 ),
                               ],
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: const Icon(Icons.notifications_active),
+                              icon: const Icon(Icons.notifications_active,
+                                color: Colors.white,),
                             )
                           ],
                         ),
@@ -63,12 +65,12 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 gaph20,
                                 Text('00',
-                                  style: klg,
+                                  style: klg.copyWith(color: Colors.white),
                                 ),
-                                Text('Steps Today',
+                                Text('Steps Today', style: ksm.copyWith(color: Colors.white),
                                 ),
                               ],
                             ),
@@ -90,43 +92,21 @@ class _GuestDashboardState extends State<GuestDashboard> {
                 ),
                 gaph20,
                 gaph10,
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Workout Log'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                      gaph20,
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Weight Log'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                      gaph20,
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Measurements'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                    ],
-                  ),
+                Column(
+                  children: const [
+                    ListTile(
+                      title: Text('Weight'),
+                      leading: Icon(Icons.fitness_center),
+                      trailing: Text('00 Kg'),
+                    ),
+                    Divider(),
+                    ListTile(
+                      title: Text('Macros'),
+                      leading: Icon(Icons.fitness_center),
+                      trailing: Text('00 KCal/Day'),
+                    ),
+                  ],
                 ),
-                gaph20,
                 gaph20,
                 Row(
                   children: const [
@@ -159,7 +139,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('00',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Steps'),
                           ],
@@ -186,7 +166,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('00',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Calories'),
                           ],
@@ -228,7 +208,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('000 g',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Protiens'),
                           ],
@@ -255,7 +235,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('000 g',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Carbs'),
                           ],
@@ -282,7 +262,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('000 g',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Fats'),
                           ],
@@ -309,7 +289,7 @@ class _GuestDashboardState extends State<GuestDashboard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text('000 g',
-                              style: kmd,
+                              style: kmd1,
                             ),
                             Text('Calories'),
                           ],
