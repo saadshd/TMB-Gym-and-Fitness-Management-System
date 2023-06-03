@@ -93,17 +93,45 @@ class _GuestDashboardState extends State<GuestDashboard> {
                 gaph20,
                 gaph10,
                 Column(
-                  children: const [
-                    ListTile(
-                      title: Text('Weight'),
-                      leading: Icon(Icons.fitness_center),
-                      trailing: Text('00 Kg'),
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: const ListTile(
+                        title: Text('Weight'),
+                        leading: Icon(Icons.fitness_center),
+                        trailing: Text('00 Kg'),
+                      ),
                     ),
-                    Divider(),
-                    ListTile(
-                      title: Text('Macros'),
-                      leading: Icon(Icons.fitness_center),
-                      trailing: Text('00 KCal/Day'),
+                    gaph20,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: const ListTile(
+                        title: Text('Macros'),
+                        leading: Icon(Icons.fitness_center),
+                        trailing: Text('00 KCal/Day'),
+                      ),
                     ),
                   ],
                 ),
@@ -297,7 +325,8 @@ class _GuestDashboardState extends State<GuestDashboard> {
                       ),
                     ),
                   ],
-                )
+                ),
+                gaph20
 
 
 

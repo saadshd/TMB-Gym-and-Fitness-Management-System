@@ -17,7 +17,7 @@ class _GuestProfileState extends State<GuestProfile> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: kpda20,
+            padding: kpdh20,
             child: Column(
               children: [
                 Container(
@@ -46,30 +46,32 @@ class _GuestProfileState extends State<GuestProfile> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              children: const [
-                                Icon(Icons.fitness_center),
+                              children: [
+                                const Icon(Icons.fitness_center,
+                                  color: Colors.white,),
                                 gapw10,
                                 Text('The Muscle Bar',
-                                  style: kmd,
+                                  style: kmd.copyWith(color: Colors.white),
                                 ),
                               ],
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: const Icon(Icons.logout),
+                              icon: const Icon(Icons.logout,
+                                color: Colors.white,),
                             )
                           ],
                         ),
                         gaph20,
                         Row(
-                          children: const [
-                            CircleAvatar(
+                          children: [
+                            const CircleAvatar(
                               radius: 30,
                               child: Icon(Icons.person),
                             ),
                             gapw20,
-                            Text('Sign up for All Features',
-                              style: kmd,
+                            Text('M. Saad Shahid',
+                              style: kmd.copyWith(color: Colors.white),
                             ),
                           ],
                         )
@@ -89,34 +91,50 @@ class _GuestProfileState extends State<GuestProfile> {
                 ),
                 gaph20,
                 gaph10,
-                SizedBox(
-                  height: 150,
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Update Profile Info'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
                       ),
-                      gaph20,
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Change Password'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
+                      child: const ListTile(
+                        title: Text('Update Profile Info'),
+                        leading: Icon(Icons.fitness_center),
+                        trailing: Icon(Icons.arrow_forward_ios),
                       ),
-                    ],
-                  ),
+                    ),
+                    gaph20,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: const ListTile(
+                        title: Text('Change Password'),
+                        leading: Icon(Icons.fitness_center),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                      ),
+                    ),
+                  ],
                 ),
                 gaph20,
-                // gaph20,
                 Row(
                   children: const [
                     gapw20,
@@ -127,56 +145,54 @@ class _GuestProfileState extends State<GuestProfile> {
                 ),
                 gaph20,
                 gaph10,
-                SizedBox(
-                  height: 300,
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Macro Calculator'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
                       ),
-                      gaph20,
-                      ListTile(
+                      child: const ListTile(
+                        title: Text('Macro Calculator'),
+                        leading: Icon(Icons.fitness_center),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                      ),
+                    ),
+                    gaph20,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const BMICalculator()));
                         },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
                         title: const Text('BMI Calculator'),
                         leading: const Icon(Icons.fitness_center),
                         trailing: const Icon(Icons.arrow_forward_ios),
                       ),
-                      gaph20,
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Log Measurement'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                      gaph20,
-                      ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        tileColor: Colors.orange.withOpacity(0.2),
-                        title: const Text('Log Weight'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                    ],
-                  ),
+                    ),
+                    gaph20
+                  ],
                 ),
               ],
             ),
