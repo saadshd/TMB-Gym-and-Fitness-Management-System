@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../paymentpage.dart';
 
 class GuestPackages extends StatefulWidget {
   const GuestPackages({Key? key}) : super(key: key);
@@ -114,7 +115,13 @@ class MyPackageContainer extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){}, child: const Text('Request this Package')),
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const PaymentScreen()));
+                    }
+                  , child: const Text('Request this Package')),
                 ],
               )
             ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../notificationpage.dart';
 
 class GuestDashboard extends StatefulWidget {
   const GuestDashboard({Key? key}) : super(key: key);
@@ -55,7 +56,11 @@ class _GuestDashboardState extends State<GuestDashboard> {
                               ],
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const NotificationPage()));
+                              },
                               icon: const Icon(Icons.notifications_active,
                                 color: Colors.white,),
                             )

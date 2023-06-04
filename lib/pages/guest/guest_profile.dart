@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tmb_fyp/pages/bmi_calculator.dart';
 
 import '../../constants.dart';
+import '../macro_calculator.dart';
 
 class GuestProfile extends StatefulWidget {
   const GuestProfile({Key? key}) : super(key: key);
@@ -160,10 +161,15 @@ class _GuestProfileState extends State<GuestProfile> {
                           ),
                         ],
                       ),
-                      child: const ListTile(
-                        title: Text('Macro Calculator'),
-                        leading: Icon(Icons.fitness_center),
-                        trailing: Icon(Icons.arrow_forward_ios),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MacroCalculator()));
+                        },
+                        title: const Text('Macro Calculator'),
+                        leading: const Icon(Icons.fitness_center),
+                        trailing: const Icon(Icons.arrow_forward_ios),
                       ),
                     ),
                     gaph20,
