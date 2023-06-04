@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../notificationpage.dart';
 
-class GuestDashboard extends StatefulWidget {
-  const GuestDashboard({Key? key}) : super(key: key);
+class UserDashboard extends StatefulWidget {
+  const UserDashboard({Key? key}) : super(key: key);
 
   @override
-  State<GuestDashboard> createState() => _GuestDashboardState();
+  State<UserDashboard> createState() => _UserDashboardState();
 }
 
-class _GuestDashboardState extends State<GuestDashboard> {
+class _UserDashboardState extends State<UserDashboard> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

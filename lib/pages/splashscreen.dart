@@ -2,10 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/constants.dart';
 import 'package:tmb_fyp/pages/auth/login.dart';
-import 'package:tmb_fyp/pages/guest/guest_navbar.dart';
-
-import '../main.dart';
-
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);

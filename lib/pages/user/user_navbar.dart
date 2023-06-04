@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:tmb_fyp/pages/guest/guest_dashboard.dart';
-import 'package:tmb_fyp/pages/guest/guest_packages.dart';
-import 'package:tmb_fyp/pages/guest/guest_profile.dart';
-// import 'package:tmb_fyp/pages/member/member_trainer.dart';
 
-class GuestNavBar extends StatefulWidget {
-  const GuestNavBar({Key? key}) : super(key: key);
+import 'user_dashboard.dart';
+import 'user_packages.dart';
+import 'user_profile.dart';
+
+class UserNavBar extends StatefulWidget {
+  const UserNavBar({Key? key}) : super(key: key);
 
 
   @override
-  State<GuestNavBar> createState() => _GuestNavBarState();
+  State<UserNavBar> createState() => _UserNavBarState();
 }
 
 
-class _GuestNavBarState extends State<GuestNavBar> {
+class _UserNavBarState extends State<UserNavBar> {
   int index = 0;
   final screens = [
-    const GuestDashboard(),
-    const GuestPackages(),
-    const GuestProfile(),
+    const UserDashboard(),
+    const UserPackages(),
+    const UserProfile(),
   ];
 
   @override

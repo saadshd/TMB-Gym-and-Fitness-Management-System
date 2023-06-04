@@ -4,14 +4,14 @@ import 'package:tmb_fyp/pages/bmi_calculator.dart';
 import '../../constants.dart';
 import '../macro_calculator.dart';
 
-class GuestProfile extends StatefulWidget {
-  const GuestProfile({Key? key}) : super(key: key);
+class UserProfile extends StatefulWidget {
+  const UserProfile({Key? key}) : super(key: key);
 
   @override
-  State<GuestProfile> createState() => _GuestProfileState();
+  State<UserProfile> createState() => _UserProfileState();
 }
 
-class _GuestProfileState extends State<GuestProfile> {
+class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

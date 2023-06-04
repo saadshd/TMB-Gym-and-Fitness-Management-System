@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/pages/auth/signup.dart';
-import 'package:tmb_fyp/pages/guest/guest_navbar.dart';
-
 import '../../constants.dart';
+import '../user/user_navbar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -85,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const GuestNavBar()),
+                    MaterialPageRoute(builder: (context) => const UserNavBar()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
