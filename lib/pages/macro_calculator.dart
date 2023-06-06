@@ -100,7 +100,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
               Row(
                 children: [
                   const Text('System:'),
-                  const SizedBox(width: 10),
+                  gapw10,
                   DropdownButton<bool>(
                     value: _isMetricSystem,
                     items: const [
@@ -121,7 +121,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              gaph10,
               Row(
                 children: [
                   const Text('Gender:'),
@@ -142,7 +142,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              gaph10,
               TextField(
                 controller: _ageController,
                 keyboardType: TextInputType.number,
@@ -150,7 +150,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   labelText: 'Age',
                 ),
               ),
-              const SizedBox(height: 20),
+              gaph10,
               TextField(
                 controller: _weightController,
                 keyboardType: TextInputType.number,
@@ -158,7 +158,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   labelText: _isMetricSystem ? 'Weight (kg)' : 'Weight (lbs)',
                 ),
               ),
-              const SizedBox(height: 20),
+              gaph10,
               TextField(
                 controller: _heightController,
                 keyboardType: TextInputType.number,
@@ -166,7 +166,7 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   labelText: _isMetricSystem ? 'Height (cm)' : 'Height (in)',
                 ),
               ),
-              const SizedBox(height: 20),
+              gaph10,
               Row(
                 children: [
                   const Text('Activity Level:'),
@@ -187,11 +187,11 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              gaph10,
               Row(
                 children: [
                   const Text('Goal:'),
-                  const SizedBox(width: 10),
+                  gapw10,
                   DropdownButton<int>(
                     value: _selectedGoalIndex,
                     items: _goalOptions.map((String value) {
@@ -208,31 +208,31 @@ class _MacroCalculatorState extends State<MacroCalculator> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              gaph10,
               ElevatedButton(
                 onPressed: _calculateMacros,
                 child: const Text('Calculate'),
               ),
-              const SizedBox(height: 30),
+              gaph20,
               Text(
                 'BMR: ${_bmr.toStringAsFixed(2)} kCal',
-                style: kmd,
+                style: kmd1,
               ),
               Text(
                 'Calories: ${_calories.toStringAsFixed(2)} grams',
-                style: kmd,
+                style: kmd1,
               ),
               Text(
                 'Carbohydrates: ${_carbohydrates.toStringAsFixed(2)} grams',
-                style: kmd,
+                style: kmd1,
               ),
               Text(
                 'Proteins: ${_protein.toStringAsFixed(2)} grams',
-                style: kmd,
+                style: kmd1,
               ),
               Text(
                 'Fats: ${_fats.toStringAsFixed(2)} grams',
-                style: kmd,
+                style: kmd1,
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmb_fyp/pages/user/widgets/expandable_card.dart';
 
 import '../../constants.dart';
 import '../notificationpage.dart';
@@ -138,6 +139,14 @@ class _UserDashboardState extends State<UserDashboard> {
                         trailing: Text('00 KCal/Day'),
                       ),
                     ),
+                    gaph20,
+                    const ExpandableCard(
+                        title: 'Daily Diet ',
+                        child: 'Your Daily Diet'),
+                    gaph20,
+                    const ExpandableCard(
+                        title: 'Daily Exercise',
+                        child: 'Your Daily Exercise')
                   ],
                 ),
                 gaph20,
