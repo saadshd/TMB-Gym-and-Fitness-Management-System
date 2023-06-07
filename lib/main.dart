@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/pages/splashscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'TMB - The Muscle Bar',
       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.indigo,

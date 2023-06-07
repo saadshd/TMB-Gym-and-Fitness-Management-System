@@ -22,12 +22,12 @@ class _BMICalculatorState extends State<BMICalculator> {
   String status = '';
   MeasurementSystem measurementSystem = MeasurementSystem.metric;
 
-  String getHeightSuffix() {
-    return measurementSystem == MeasurementSystem.metric ? 'cm' : 'in';
+  String getHeightLabel() {
+    return measurementSystem == MeasurementSystem.metric ? 'Height (cm)' : 'Height (inch)';
   }
 
-  String getWeightSuffix() {
-    return measurementSystem == MeasurementSystem.metric ? 'kg' : 'lbs';
+  String getWeightLabel() {
+    return measurementSystem == MeasurementSystem.metric ? 'Weight (kg)' : 'Weight (lbs)';
   }
 
   void calculateBMI() {
@@ -82,13 +82,46 @@ class _BMICalculatorState extends State<BMICalculator> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+            Row(
+              children: [
+                Row(
+                  children: [
+                    const Text('System:  '),
+                    Radio<MeasurementSystem>(
+                      value: MeasurementSystem.metric,
+                      groupValue: measurementSystem,
+                      onChanged: (MeasurementSystem? value) {
+                        setState(() {
+                          measurementSystem = value!;
+                        });
+                      },
+                    ),
+                    const Text('Metric'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio<MeasurementSystem>(
+                      value: MeasurementSystem.imperial,
+                      groupValue: measurementSystem,
+                      onChanged: (MeasurementSystem? value) {
+                        setState(() {
+                          measurementSystem = value!;
+                        });
+                      },
+                    ),
+                    const Text('Imperial'),
+                  ],
+
+                )
+              ],
+            ),
             TextField(
               controller: _heightController,
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                labelText: 'Height',
-                suffixText: getHeightSuffix(),
+                labelText: getHeightLabel(),
               ),
             ),
             const SizedBox(
@@ -98,36 +131,11 @@ class _BMICalculatorState extends State<BMICalculator> {
               controller: _weightController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Weight',
-                suffixText: getWeightSuffix(),
+                labelText: getWeightLabel(),
               ),
             ),
             const SizedBox(
               height: 20,
-            ),
-            ListTile(
-              title: const Text('Metric'),
-              leading: Radio<MeasurementSystem>(
-                value: MeasurementSystem.metric,
-                groupValue: measurementSystem,
-                onChanged: (MeasurementSystem? value) {
-                  setState(() {
-                    measurementSystem = value!;
-                  });
-                },
-              ),
-            ),
-            ListTile(
-              title: const Text('Imperial'),
-              leading: Radio<MeasurementSystem>(
-                value: MeasurementSystem.imperial,
-                groupValue: measurementSystem,
-                onChanged: (MeasurementSystem? value) {
-                  setState(() {
-                    measurementSystem = value!;
-                  });
-                },
-              ),
             ),
             const SizedBox(
               height: 20,

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/constants.dart';
-import 'package:tmb_fyp/pages/auth/login.dart';
+import 'package:tmb_fyp/pages/user/auth/user_login.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
     super.initState ();
     Timer(const Duration(seconds: 5),
             () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const LoginPage()
+            MaterialPageRoute(builder: (context) => const UserLoginPage()
             )
         ));
   }
