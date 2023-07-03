@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tmb_fyp/pages/user/auth/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../constants.dart';
 import '../../trainer/auth/trainer_login.dart';
 import '../user_navbar.dart';
+import 'user_data.dart';
 
 class UserLoginPage extends StatefulWidget {
   const UserLoginPage({Key? key}) : super(key: key);
@@ -57,9 +57,13 @@ class _UserLoginPageState extends State<UserLoginPage> {
                   children: [
                     TextFormField(
                       controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Enter Email';
+                        }
+                        else if(!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(value)){
+                          return 'Enter valid email';
                         }
                         else {
                           return null;
@@ -69,6 +73,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
                         border: UnderlineInputBorder(
                         ),
                         hintText: 'Email',
+                        helperText: 'example@domain.com',
                         prefixIcon: Icon(Icons.email,),
                       ),
                     ),
@@ -147,7 +152,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SignupPage()),
+                        MaterialPageRoute(builder: (context) => UserData()),
                       );
                     },
                     child: Text(' Sign Up',

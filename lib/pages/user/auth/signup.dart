@@ -54,9 +54,13 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     TextFormField(
                       controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Enter Email';
+                        }
+                        else if(!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(value)){
+                          return 'Enter valid email';
                         }
                         else {
                           return null;
@@ -66,29 +70,10 @@ class _SignupPageState extends State<SignupPage> {
                         border: UnderlineInputBorder(
                         ),
                         hintText: 'Email',
+                        helperText: 'example@domain.com',
                         prefixIcon: Icon(Icons.email,),
                       ),
                     ),
-                    //
-                    // gaph20,
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     border: UnderlineInputBorder(
-                    //     ),
-                    //     hintText: 'Phone No.',
-                    //     prefixIcon: Icon(Icons.phone,),
-                    //   ),
-                    // ),
-                    //
-                    // gaph20,
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     border: UnderlineInputBorder(
-                    //     ),
-                    //     hintText: 'Name',
-                    //     prefixIcon: Icon(Icons.person,),
-                    //   ),
-                    // ),
 
                     gaph20,
                     TextFormField(

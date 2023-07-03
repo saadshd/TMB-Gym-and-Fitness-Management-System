@@ -160,40 +160,6 @@ class _UserDashboardState extends State<UserDashboard> {
                       },
                     ),
                     gaph20,
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MacroCalculator()));
-                        },
-                        title: const Text('Macros'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Text('00 KCal/Day'),
-                      ),
-                    ),
-                    gaph20,
-                    const ExpandableCard(
-                        title: 'Daily Diet ',
-                        child: 'Your Daily Diet'),
-                    gaph20,
-                    const ExpandableCard(
-                        title: 'Daily Exercise',
-                        child: 'Your Daily Exercise')
-                  ],
-                ),
                 gaph20,
                 Row(
                   children: const [
@@ -262,129 +228,129 @@ class _UserDashboardState extends State<UserDashboard> {
                     ),
                   ],
                 ),
-                // gaph20,
-                // gaph20,
-                // Row(
-                //   children: const [
-                //     gapw20,
-                //     Text('Daily Macros',
-                //         style: kmd
-                //     )
-                //   ],
-                // ),
-                // gaph20,
-                // gaph10,
-                // Row(
-                //   children: [
-                //     Expanded(
-                //       child: Container(
-                //         height: 100,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.grey.withOpacity(0.3),
-                //               spreadRadius: 3,
-                //               blurRadius: 5,
-                //               offset: const Offset(0, 3), // changes position of shadow
-                //             ),
-                //           ],
-                //           borderRadius: BorderRadius.circular(10),
-                //         ),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: const [
-                //             Text('000 g',
-                //               style: kmd1,
-                //             ),
-                //             Text('Protiens'),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //     gapw10,
-                //     Expanded(
-                //       child: Container(
-                //         height: 100,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.grey.withOpacity(0.3),
-                //               spreadRadius: 3,
-                //               blurRadius: 5,
-                //               offset: const Offset(0, 3), // changes position of shadow
-                //             ),
-                //           ],
-                //           borderRadius: BorderRadius.circular(10),
-                //         ),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: const [
-                //             Text('000 g',
-                //               style: kmd1,
-                //             ),
-                //             Text('Carbs'),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //     gapw10,
-                //     Expanded(
-                //       child: Container(
-                //         height: 100,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.grey.withOpacity(0.3),
-                //               spreadRadius: 3,
-                //               blurRadius: 5,
-                //               offset: const Offset(0, 3), // changes position of shadow
-                //             ),
-                //           ],
-                //           borderRadius: BorderRadius.circular(10),
-                //         ),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: const [
-                //             Text('000 g',
-                //               style: kmd1,
-                //             ),
-                //             Text('Fats'),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //     gapw10,
-                //     Expanded(
-                //       child: Container(
-                //         height: 100,
-                //         decoration: BoxDecoration(
-                //           color: Colors.white,
-                //           boxShadow: [
-                //             BoxShadow(
-                //               color: Colors.grey.withOpacity(0.3),
-                //               spreadRadius: 3,
-                //               blurRadius: 5,
-                //               offset: const Offset(0, 3), // changes position of shadow
-                //             ),
-                //           ],
-                //           borderRadius: BorderRadius.circular(10),
-                //         ),
-                //         child: Column(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: const [
-                //             Text('000 g',
-                //               style: kmd1,
-                //             ),
-                //             Text('Calories'),
-                //           ],
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                gaph20,
+                gaph20,
+                Row(
+                  children: const [
+                    gapw20,
+                    Text('Daily Macros',
+                        style: kmd
+                    )
+                  ],
+                ),
+                gaph20,
+                gaph10,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text('000 g',
+                              style: kmd1,
+                            ),
+                            Text('Protiens'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    gapw10,
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text('000 g',
+                              style: kmd1,
+                            ),
+                            Text('Carbs'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    gapw10,
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text('000 g',
+                              style: kmd1,
+                            ),
+                            Text('Fats'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    gapw10,
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text('000 g',
+                              style: kmd1,
+                            ),
+                            Text('Calories'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 gaph20
 
 
@@ -392,9 +358,11 @@ class _UserDashboardState extends State<UserDashboard> {
 
               ],
             ),
+            ],
           ),
         ),
       ),
+    ),
     );
   }
 }
