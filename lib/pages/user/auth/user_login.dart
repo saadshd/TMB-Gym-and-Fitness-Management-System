@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tmb_fyp/pages/user/auth/signup.dart';
 import '../../../constants.dart';
 import '../../trainer/auth/trainer_login.dart';
 import '../user_navbar.dart';
-import 'user_data.dart';
 
 class UserLoginPage extends StatefulWidget {
   const UserLoginPage({Key? key}) : super(key: key);
@@ -18,6 +19,26 @@ class _UserLoginPageState extends State<UserLoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  late SharedPreferences _prefs;
+  bool _isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
+
+  Future<void> _checkLoginStatus() async {
+    _prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isLoggedIn = _prefs.getBool('isLoggedIn') ?? false;
+    });
+  }
+
+  Future<void> _saveLoginStatus(bool isLoggedIn) async {
+    _prefs = await SharedPreferences.getInstance();
+    await _prefs.setBool('isLoggedIn', isLoggedIn);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +55,26 @@ class _UserLoginPageState extends State<UserLoginPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('TMB',
-                      style: kmd.copyWith(color: Colors.indigo)),
-                      const Text('THE MUSCLE BAR',
-                      style: ksm,),
+                      Text(
+                        'TMB',
+                        style: kmd.copyWith(color: Colors.indigo),
+                      ),
+                      const Text(
+                        'THE MUSCLE BAR',
+                        style: ksm,
+                      ),
                       gaph20,
                       gaph20,
                       gaph20,
                       gaph20,
-                      Text('Welcome',
-                        style: kmd.copyWith(color: Colors.indigo),),
-                      const Text('Lets get started',
-                        style: ksm,),
+                      Text(
+                        'Welcome',
+                        style: kmd.copyWith(color: Colors.indigo),
+                      ),
+                      const Text(
+                        'Lets get started',
+                        style: ksm,
+                      ),
                     ],
                   ),
                 ],
@@ -58,46 +87,43 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     TextFormField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
-                      validator: (value){
-                        if(value!.isEmpty){
+                      validator: (value) {
+                        if (value!.isEmpty) {
                           return 'Enter Email';
-                        }
-                        else if(!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(value)){
+                        } else if (!RegExp(
+                            r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+                            .hasMatch(value)) {
                           return 'Enter valid email';
-                        }
-                        else {
+                        } else {
                           return null;
                         }
                       },
                       decoration: const InputDecoration(
-                        border: UnderlineInputBorder(
-                        ),
+                        border: UnderlineInputBorder(),
                         hintText: 'Email',
                         helperText: 'example@domain.com',
-                        prefixIcon: Icon(Icons.email,),
+                        prefixIcon: Icon(Icons.email),
                       ),
                     ),
-
                     gaph20,
                     TextFormField(
                       obscureText: _isObscure,
                       controller: _passwordController,
-                      validator: (value){
-                        if(value!.isEmpty){
+                      validator: (value) {
+                        if (value!.isEmpty) {
                           return 'Enter Password';
-                        }
-                        else {
+                        } else {
                           return null;
                         }
                       },
                       decoration: InputDecoration(
-                        border: const UnderlineInputBorder(
-                        ),
+                        border: const UnderlineInputBorder(),
                         hintText: 'Password',
-                        prefixIcon: const Icon(Icons.lock,),
+                        prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _isObscure ? Icons.visibility : Icons.visibility_off,
+                            _isObscure ? Icons.visibility : Icons
+                                .visibility_off,
                           ),
                           onPressed: () {
                             setState(() {
@@ -107,38 +133,30 @@ class _UserLoginPageState extends State<UserLoginPage> {
                         ),
                       ),
                     ),
-                    gaph10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () { },
-                          child: const Text('Forgot Password?',
-                            style: ksm,
-                          ),
-                        ),
-                      ],
-                    ),
-
                     gaph20,
                     gaph20,
                     ElevatedButton(
                       onPressed: () {
-                        FirebaseAuth.instance.signInWithEmailAndPassword(
+                        FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
                             email: _emailController.text,
                             password: _passwordController.text)
                             .then((value) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const UserNavBar()));
+                          _saveLoginStatus(true);
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const UserNavBar(),
+                            ),
+                          );
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical:  10,horizontal: 100),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 100),
                       ),
                       child: const Text('Login'),
                     ),
-
                   ],
                 ),
               ),
@@ -146,17 +164,21 @@ class _UserLoginPageState extends State<UserLoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account?",
-                    style: ksm,),
+                  const Text(
+                    "Don't have an account?",
+                    style: ksm,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => UserData()),
+                        MaterialPageRoute(builder: (context) => const SignupPage()),
                       );
                     },
-                    child: Text(' Sign Up',
-                      style: ksm.copyWith(color: Colors.indigo, fontWeight: FontWeight.bold),
+                    child: Text(
+                      ' Sign Up',
+                      style: ksm.copyWith(
+                          color: Colors.indigo, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -169,16 +191,20 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const TrainerLoginPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const TrainerLoginPage()),
                       );
                     },
-                    child: Text('Login ',
-                      style: ksm.copyWith(color: Colors.indigo, fontWeight: FontWeight.bold),
+                    child: Text(
+                      'Login ',
+                      style: ksm.copyWith(
+                          color: Colors.indigo, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const Text("as a trainer",
-                    style: ksm,),
-
+                  const Text(
+                    "as a trainer",
+                    style: ksm,
+                  ),
                 ],
               ),
             ],
@@ -188,3 +214,4 @@ class _UserLoginPageState extends State<UserLoginPage> {
     );
   }
 }
+

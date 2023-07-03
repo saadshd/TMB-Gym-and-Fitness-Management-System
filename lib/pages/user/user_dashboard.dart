@@ -3,6 +3,7 @@ import 'package:tmb_fyp/pages/user/widgets/expandable_card.dart';
 import 'package:tmb_fyp/pages/user/widgets/weight_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../constants.dart';
+import '../bmi_calculator.dart';
 import '../macro_calculator.dart';
 import '../notificationpage.dart';
 
@@ -158,6 +159,57 @@ class _UserDashboardState extends State<UserDashboard> {
                           ),
                         );
                       },
+                    ),
+
+                    gaph20,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MacroCalculator()));
+                        },
+                        title: const Text('Macro Calculator'),
+                        leading: const Icon(Icons.fitness_center),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      ),
+                    ),
+                    gaph20,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const BMICalculator()));
+                        },
+                        title: const Text('BMI Calculator'),
+                        leading: const Icon(Icons.fitness_center),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                      ),
                     ),
                     gaph20,
                 gaph20,
