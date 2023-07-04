@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tmb_fyp/pages/user/auth/user_login.dart';
 import 'package:tmb_fyp/pages/user/widgets/expandable_card.dart';
 import 'package:tmb_fyp/pages/user/widgets/weight_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -59,14 +61,29 @@ class _UserDashboardState extends State<UserDashboard> {
                                 ),
                               ],
                             ),
-                            IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => const NotificationPage()));
-                              },
-                              icon: const Icon(Icons.notifications_active,
-                                color: Colors.white,),
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const NotificationPage()));
+                                  },
+                                  icon: const Icon(Icons.notifications_active,
+                                    color: Colors.white,),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    FirebaseAuth.instance.signOut().then((value) {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => const UserLoginPage()));
+                                    });
+                                  },
+                                  icon: const Icon(Icons.logout,
+                                    color: Colors.white,),
+                                )
+                              ],
                             )
                           ],
                         ),

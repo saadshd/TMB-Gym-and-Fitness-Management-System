@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tmb_fyp/pages/user/auth/user_login.dart';
-import 'package:tmb_fyp/pages/user/widgets/weight_dialog.dart';
 import '../../constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../notificationpage.dart';
 
 
 class UserProfile extends StatefulWidget {
@@ -57,96 +58,46 @@ class _UserProfileState extends State<UserProfile> {
                                 ),
                               ],
                             ),
-                            IconButton(
-                              onPressed: () {
-                                FirebaseAuth.instance.signOut().then((value) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const UserLoginPage()));
-                                });
-                              },
-                              icon: const Icon(Icons.logout,
-                                color: Colors.white,),
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const NotificationPage()));
+                                  },
+                                  icon: const Icon(Icons.notifications_active,
+                                    color: Colors.white,),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    FirebaseAuth.instance.signOut().then((value) {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => const UserLoginPage()));
+                                    });
+                                  },
+                                  icon: const Icon(Icons.logout,
+                                    color: Colors.white,),
+                                ),
+                              ],
                             )
                           ],
                         ),
                         gaph20,
-                        Row(
-                          children: [
-                            const CircleAvatar(
-                              radius: 30,
-                              child: Icon(Icons.person),
-                            ),
-                            gapw20,
-                            Text('M. Saad Shahid',
-                              style: kmd.copyWith(color: Colors.white),
-                            ),
-                          ],
+                        const CircleAvatar(
+                          radius: 40,
+                          child: Icon(Icons.person, size: 30,),
                         )
                       ],
                     ),
                   ),
                 ),
                 gaph20,
-                // gaph20,
-                // Row(
-                //   children: const [
-                //     gapw20,
-                //     Text('Profile Manage',
-                //         style: kmd
-                //     )
-                //   ],
-                // ),
-                // gaph20,
-                // gaph10,
-                // Column(
-                //   children: [
-                //     Container(
-                //       decoration: BoxDecoration(
-                //         color: Colors.white,
-                //         borderRadius: BorderRadius.circular(10),
-                //         boxShadow: [
-                //           BoxShadow(
-                //             color: Colors.grey.withOpacity(0.3),
-                //             spreadRadius: 3,
-                //             blurRadius: 5,
-                //             offset: const Offset(0, 3),
-                //           ),
-                //         ],
-                //       ),
-                //       child: const ListTile(
-                //         title: Text('Update Profile Info'),
-                //         leading: Icon(Icons.fitness_center),
-                //         trailing: Icon(Icons.arrow_forward_ios),
-                //       ),
-                //     ),
-                //     gaph20,
-                //     Container(
-                //       decoration: BoxDecoration(
-                //         color: Colors.white,
-                //         borderRadius: BorderRadius.circular(10),
-                //         boxShadow: [
-                //           BoxShadow(
-                //             color: Colors.grey.withOpacity(0.3),
-                //             spreadRadius: 3,
-                //             blurRadius: 5,
-                //             offset: const Offset(0, 3),
-                //           ),
-                //         ],
-                //       ),
-                //       child: const ListTile(
-                //         title: Text('Change Password'),
-                //         leading: Icon(Icons.fitness_center),
-                //         trailing: Icon(Icons.arrow_forward_ios),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                // gaph20,
                 Row(
                   children: const [
                     gapw20,
-                    Text('More',
+                    Text('Profile',
                         style: kmd
                     )
                   ],
@@ -168,16 +119,39 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                         ],
                       ),
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const WeightDialog()));
-                        },
-                        title: const Text('Add Weight'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
+                      child: Column(
+                        children: const [
+                          ListTile(
+                            title: Text('Name'),
+                            trailing: Text('M. Saad Shahid'),
+                          ),
+                          Divider(),
+                          ListTile(
+                            title: Text('CNIC'),
+                            trailing: Text('36603-4788047-3'),
+                          ),
+                          Divider(),
+                          ListTile(
+                            title: Text('Contact'),
+                            trailing: Text('0335-7735290'),
+                          ),
+                          Divider(),
+                          ListTile(
+                            title: Text('Age'),
+                            trailing: Text('21'),
+                          ),
+                          Divider(),
+                          ListTile(
+                            title: Text('Weight'),
+                            trailing: Text('105'),
+                          ),
+                          Divider(),
+                          ListTile(
+                            title: Text('Email'),
+                            trailing: Text('saad@tmb.com'),
+                          ),
+                        ],
+                      )
                     ),
                   ],
                 ),

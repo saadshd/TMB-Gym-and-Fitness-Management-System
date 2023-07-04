@@ -101,7 +101,6 @@ class _UserLoginPageState extends State<UserLoginPage> {
                       decoration: const InputDecoration(
                         border: UnderlineInputBorder(),
                         hintText: 'Email',
-                        helperText: 'example@domain.com',
                         prefixIcon: Icon(Icons.email),
                       ),
                     ),

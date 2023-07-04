@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tmb_fyp/pages/trainer/trainer_dashboard.dart';
+import 'package:tmb_fyp/pages/trainer/trainer_navbar.dart';
 import '../../../constants.dart';
 
 class TrainerLoginPage extends StatefulWidget {
@@ -121,9 +122,9 @@ class _TrainerLoginPageState extends State<TrainerLoginPage> {
                             email: _emailController.text,
                             password: _passwordController.text)
                             .then((value) {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => const TrainerDashboard()));
+                              MaterialPageRoute(builder: (context) => const TrainerNavBar()));
                         });
                       },
                       style: ElevatedButton.styleFrom(

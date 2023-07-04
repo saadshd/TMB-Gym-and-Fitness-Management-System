@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmb_fyp/pages/user/user_trainer.dart';
 import 'package:tmb_fyp/pages/user/widgets/comingsoon_dialog.dart';
 import 'package:tmb_fyp/pages/user/widgets/payment_container.dart';
 
@@ -70,7 +71,9 @@ class PaymentScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Add your proceed button functionality here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UserTrainer()));
               },
               child: const Text('Proceed'),
             ),

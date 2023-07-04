@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tmb_fyp/pages/bmi_calculator.dart';
-import 'package:tmb_fyp/pages/user/auth/user_login.dart';
 import '../../constants.dart';
-import '../macro_calculator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../user/auth/user_login.dart';
 
 
 class TrainerProfile extends StatefulWidget {
@@ -46,27 +44,35 @@ class _TrainerProfileState extends State<TrainerProfile> {
                       children: [
                         gaph20,
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Icon(Icons.fitness_center,
-                              color: Colors.white,),
-                            gapw10,
-                            Text('The Muscle Bar',
-                              style: kmd.copyWith(color: Colors.white),
+                            Row(
+                              children: [
+                                const Icon(Icons.fitness_center,
+                                  color: Colors.white,),
+                                gapw10,
+                                Text('The Muscle Bar',
+                                  style: kmd.copyWith(color: Colors.white),
+                                ),
+                              ],
                             ),
+                            IconButton(
+                              onPressed: () {
+                                FirebaseAuth.instance.signOut().then((value) {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const UserLoginPage()));
+                                });
+                              },
+                              icon: const Icon(Icons.logout,
+                                color: Colors.white,),
+                            )
                           ],
                         ),
                         gaph20,
-                        Row(
-                          children: [
-                            const CircleAvatar(
-                              radius: 30,
-                              child: Icon(Icons.person),
-                            ),
-                            gapw20,
-                            Text('Trainer',
-                              style: kmd.copyWith(color: Colors.white),
-                            ),
-                          ],
+                        const CircleAvatar(
+                          radius: 40,
+                          child: Icon(Icons.person, size: 30,),
                         )
                       ],
                     ),
@@ -76,7 +82,7 @@ class _TrainerProfileState extends State<TrainerProfile> {
                 Row(
                   children: const [
                     gapw20,
-                    Text('More',
+                    Text('Profile',
                         style: kmd
                     )
                   ],
@@ -86,55 +92,47 @@ class _TrainerProfileState extends State<TrainerProfile> {
                 Column(
                   children: [
                     Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MacroCalculator()));
-                        },
-                        title: const Text('Macro Calculator'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 3,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          children: const [
+                            ListTile(
+                              title: Text('Name'),
+                              trailing: Text('M. Usman'),
+                            ),
+                            Divider(),
+                            ListTile(
+                              title: Text('CNIC'),
+                              trailing: Text('3302-0231150-7'),
+                            ),
+                            Divider(),
+                            ListTile(
+                              title: Text('Contact'),
+                              trailing: Text('0313-4945053'),
+                            ),
+                            Divider(),
+                            ListTile(
+                              title: Text('Age'),
+                              trailing: Text('20'),
+                            ),
+                            Divider(),
+                            ListTile(
+                              title: Text('Email'),
+                              trailing: Text('usman@tmb.com'),
+                            ),
+                          ],
+                        )
                     ),
-                    gaph20,
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const BMICalculator()));
-                        },
-                        title: const Text('BMI Calculator'),
-                        leading: const Icon(Icons.fitness_center),
-                        trailing: const Icon(Icons.arrow_forward_ios),
-                      ),
-                    ),
-                    gaph20
                   ],
                 ),
               ],
